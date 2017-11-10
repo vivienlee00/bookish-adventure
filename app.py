@@ -16,9 +16,8 @@ def hello_world():
     siteurl = urllib2.urlopen("https://api.nasa.gov/planetary/apod?api_key=TUVnwOk0lvflM6FqvNJRUzyuVcHTN1ciFHPip9dU")
     siteurl2= siteurl.read()
     elements = json.loads(siteurl2)
-    return render_template('temp.html', img = elements["url"])
+    return render_template('temp.html', img = elements["url"], exp = elements["explanation"])
 
 if __name__ == "__main__":
     app.debug = True
     app.run()
-
